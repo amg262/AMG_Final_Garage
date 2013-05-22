@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd" xmlns:aop="http://www.springframework.org/schema/aop">
+   
+    
+
+    <!-- All the following are the different Garage objects with
+         different values for name, Id, feecalc, etc. Can be changed
+        with ease at any time-->
+    <bean id="bestValueGarage" class="amg_final_garage.Garage">
+        <constructor-arg type="String" value="0001BVPG"/>
+        <constructor-arg type="String" value="Best Value Garage Co."/>
+        <constructor-arg type="String" value="901 Watertown Plank Ave."/>
+        <constructor-arg type="String" value="Milwaukee"/>
+        <constructor-arg type="String" value="WI"/>
+        <constructor-arg type="String" value="54141"/>
+        <constructor-arg type="String" value="414-425-1353"/>
+        <constructor-arg ref="bestValueFeeCalculator"/>
+    </bean>
+    
+    <bean id="thriftyGarage" class="amg_final_garage.Garage">
+        <constructor-arg type="String" value="0002TYPG"/>
+        <constructor-arg type="String" value="Thrifty Garage Inc."/>
+        <constructor-arg type="String" value="808 Progress Dr."/>
+        <constructor-arg type="String" value="St. Paul"/>
+        <constructor-arg type="String" value="MN"/>
+        <constructor-arg type="String" value="53003"/>
+        <constructor-arg type="String" value="613-353-2349"/>
+        <constructor-arg ref="thriftyFeeCalculator"/>
+    </bean>
+    
+    <bean id="newGarageClient" class="amg_final_garage.Garage">
+        <constructor-arg type="String" value="0003NPGC"/>
+        <constructor-arg type="String" value="Your Name Here Co."/>
+        <constructor-arg type="String" value="address"/>
+        <constructor-arg type="String" value="city"/>
+        <constructor-arg type="String" value="state"/>
+        <constructor-arg type="String" value="zip"/>
+        <constructor-arg type="String" value="phone-num"/>
+        <constructor-arg ref="variableFeeCalculator"/>
+    </bean>
+    
+    <bean id="sampleGarageOne" class="amg_final_garage.Garage">
+        <constructor-arg type="String" value="0004SPGC"/>
+        <constructor-arg type="String" value="Sample Garage Inc."/>
+        <constructor-arg type="String" value="801 Main St."/>
+        <constructor-arg type="String" value="Liberty City"/>
+        <constructor-arg type="String" value="NY"/>
+        <constructor-arg type="String" value="90210"/>
+        <constructor-arg type="String" value="212-867-5309"/>
+        <constructor-arg ref="sampleGarageFeeCalculator"/>
+    </bean>
+    
+    
+
+    <!-- All the Strategty object classses are here. they are referenced at the the 
+    end of each Constructor -->
+    <bean id="bestValueFeeCalculator" class="amg_final_garage.BestValueFeeCalculator">
+    </bean>
+    
+    <bean id="thriftyFeeCalculator" class="amg_final_garage.ThriftyFeeCalculator">
+    </bean>
+    
+    <bean id="variableFeeCalculator" class="amg_final_garage.VariableFeeCalculator">
+    </bean>
+    
+    <bean id="sampleGarageFeeCalculator" class="amg_final_garage.SampleGarageFeeCalculator">
+    </bean>
+    
+</beans>
